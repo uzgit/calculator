@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>JÅVLÄ Calculator</title>
+</head>
+<body>
+
+This is a jåvlä calculator!
+
+<form action="", method="post">
+
+    {% csrf_token %}
+    {{ form }}
+{#    <button type="submit">Submit</button>#}
+
+{#    <p>First Name: <input type="text" name="firstname"></p>#}
+{#    <p>Last Name: <input type="text" name="lastname"></p>#}
+    <p><input type="submit" value="Submit"></p>
+
+</form>
+
+The most recent calculation was: {{ calculation }} = {{ result }}
+
+</body>
+</html>
