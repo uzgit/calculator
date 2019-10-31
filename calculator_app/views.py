@@ -16,6 +16,9 @@ calculator = Calculator()
 # Create your views here.
 def calculate(request):
 
+    calculation = None
+    result = None
+
     if request.method == "GET":
         print("in GET")
 
