@@ -20,6 +20,8 @@ calculator = Calculator()
 def calculate(request):
     calculation = None
     result = None
+
+
     if request.method == "GET":
         print("in GET")
 
