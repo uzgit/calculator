@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!--<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <title>JÅVLÄ Calculator</title>
@@ -20,6 +20,40 @@ This is a jåvlä calculator!
 </form>
 
 The most recent calculation was: {{ calculation }} = {{ result }}
+
+</body>
+</html>
+-->
+
+{% load i18n %}
+<html>
+<style type= "text/css">
+    body {padding: 0 5em; margin:0}
+    h1 {padding: 1em 1em;}
+    h2 {border-top: 1px dotted #fff; margin-top: 2em}
+    p {margin: 1em 0}
+</style>
+<body>
+<h1>{% trans "JÅVLÄ Calculator" %}</h1>
+
+    This is a jåvlä calculator!
+
+<form action="", method="post">
+
+    {% csrf_token %}
+    {{ form }}
+{#    <button type="submit">Submit</button>#}
+
+{#    <p>First Name: <input type="text" name="firstname"></p>#}
+{#    <p>Last Name: <input type="text" name="lastname"></p>#}
+    <p><input type="submit" value="Submit"></p>
+
+</form>
+
+The most recent calculation was: {{ calculation }} = {{ result }}
+
+{% block content %}
+{% endblock %}
 
 </body>
 </html>

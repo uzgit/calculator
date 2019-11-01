@@ -1,4 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+
 from .forms import CalculateForm
 
 class Calculator:
@@ -15,13 +18,13 @@ calculator = Calculator()
 
 # Create your views here.
 def calculate(request):
-
+    calculation = None
+    result = None
     if request.method == "GET":
         print("in GET")
 
     elif request.method == "POST":
         form = CalculateForm(request.POST)
-
         if form.is_valid():
             calculation = form.cleaned_data["calculation"]
             result = calculator.handle_calculation(calculation)
@@ -31,3 +34,4 @@ def calculate(request):
 
     form = CalculateForm()
     return render(request, "calculate.html", {"form" : form, "calculation" : calculation, "result" : result})
+
