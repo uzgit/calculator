@@ -12,7 +12,15 @@ class Calculator:
 
     def handle_calculation(self, calculation):
 
-        return eval(calculation)
+        result = None
+
+        try:
+            result = eval(calculation)
+            
+        except(ZeroDivisionError):
+            result = "You can't divide by 0!!!"
+
+        return result
 
 calculator = Calculator()
 
