@@ -42,9 +42,6 @@ def calculate(request):
             calculation = form.cleaned_data["calculation"]
             result = calculator.handle_calculation(calculation)
 
-            print("calculation: {}".format(calculation))
-            print("result: {}".format( result ))
-
     form = CalculateForm()
     return render(request, "calculate.html", {"form" : form, "calculation" : calculation, "result" : result})
 
