@@ -16,9 +16,12 @@ class Calculator:
 
         try:
             result = eval(calculation)
-            
-        except(ZeroDivisionError):
-            result = "You can't divide by 0!!!"
+
+        except ZeroDivisionError:
+            result = "ERROR: You can't divide by 0!!!"
+
+        except NameError:
+            result = "ERROR: You can only use numbers and arithmetic symbols."
 
         return result
 
