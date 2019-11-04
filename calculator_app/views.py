@@ -12,7 +12,18 @@ class Calculator:
 
     def handle_calculation(self, calculation):
 
-        return eval(calculation)
+        result = None
+
+        try:
+            result = eval(calculation)
+
+        except ZeroDivisionError:
+            result = "ERROR: You can't divide by 0!!!"
+
+        except NameError:
+            result = "ERROR: You can only use numbers and arithmetic symbols."
+
+        return result
 
 calculator = Calculator()
 
@@ -30,9 +41,6 @@ def calculate(request):
         if form.is_valid():
             calculation = form.cleaned_data["calculation"]
             result = calculator.handle_calculation(calculation)
-
-            print("calculation: {}".format(calculation))
-            print("result: {}".format( result ))
 
     form = CalculateForm()
     return render(request, "calculate.html", {"form" : form, "calculation" : calculation, "result" : result})
